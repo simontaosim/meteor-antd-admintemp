@@ -34,7 +34,6 @@ webdeb:app-loader
 nitrolabs:cdn
 lookback:emoji
 khrone:img-qrcode
-materialize:materialize
 http@1.2.12
 cfs:http-methods
 dynamic-import@0.1.0

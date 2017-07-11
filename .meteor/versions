@@ -48,7 +48,6 @@ ejson@1.0.13
 email@1.2.3
 es5-shim@4.6.15
 fastclick@1.0.13
-fourseven:scss@3.10.1
 geojson-utils@1.0.10
 hot-code-push@1.0.4
 html-tools@1.0.11
@@ -68,7 +67,6 @@ localstorage@1.1.0
 logging@1.1.17
 lookback:emoji@0.3.1
 markdown@1.0.12
-materialize:materialize@0.98.2
 meteor@1.6.1
 meteor-base@1.1.0
 meteor-platform@1.2.6

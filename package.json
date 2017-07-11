@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "antd": "^2.12.0",
     "babel-runtime": "^6.23.0",
     "bcrypt": "^0.8.7",
     "hashids": "^1.1.1",
@@ -14,6 +15,8 @@
     "node-pre-gyp": "^0.6.32",
     "node-uuid": "^1.4.8",
     "object-assign": "^4.1.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
