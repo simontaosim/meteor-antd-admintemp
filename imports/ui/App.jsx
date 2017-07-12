@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import Layout from 'antd/lib/layout';
+import Menu from 'antd/lib/menu';
+import MenuItem from 'antd/lib/menu/MenuItem';
+import 'antd/lib/layout/style';
+import 'antd/lib/menu/style';
 
 import Task from './Task.jsx';
 
@@ -19,16 +24,33 @@ export default class App extends Component {
   }
 
   render() {
+    const side_menu_group1 = [
+      <MenuItem>菜单项</MenuItem>,
+      <MenuItem>菜单项</MenuItem>,
+      <MenuItem>菜单项</MenuItem>,
+      ];
     return (
-      <div className="container">
-        <header>
-          <h1>Todo List</h1>
-        </header>
-
-        <ul>
-          {this.renderTasks()}
-        </ul>
-      </div>
+      <Layout>
+        <Layout.Header>
+          <Menu　theme="dark" mode="horizontal">
+            <Menu.Item>菜单项</Menu.Item>
+            <Menu.SubMenu title="子菜单">
+              <Menu.Item>子菜单项</Menu.Item>
+            </Menu.SubMenu>
+          </Menu>
+        </Layout.Header>
+        <Layout>
+          <Layout.Sider>
+            <Menu　theme="dark" mode="inline">
+              <Menu.ItemGroup title="子菜单" children={side_menu_group1}>
+              </Menu.ItemGroup>
+            </Menu>
+          </Layout.Sider>
+          <Layout.Content>main content</Layout.Content>
+          <Layout.Sider>right sidebar</Layout.Sider>
+        </Layout>
+        <Layout.Footer>footer</Layout.Footer>
+      </Layout>
     );
   }
 }

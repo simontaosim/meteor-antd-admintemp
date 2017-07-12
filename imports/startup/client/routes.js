@@ -1,21 +1,78 @@
-import { FlowRouter } from 'meteor/kadira:flow-router';
-import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-// Import needed templates
-import '../../ui/layouts/body/body.js';
-import '../../ui/pages/home/home.js';
-import '../../ui/pages/not-found/not-found.js';
+const AppRoutes = () => (
+  <Router>
 
-// Set up all routes in the app
-FlowRouter.route('/', {
-  name: 'App.home',
-  action() {
-    BlazeLayout.render('App_body', { main: 'App_home' });
-  },
-});
+    <div>
+    <h2>万人车汇商业平台</h2>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/topics">Topics</Link></li>
+      </ul>
 
-FlowRouter.notFound = {
-  action() {
-    BlazeLayout.render('App_body', { main: 'App_notFound' });
-  },
-};
+      <hr/>
+
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/topics" component={Topics}/>
+    </div>
+  </Router>
+)
+
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
+
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+const Topics = ({ match }) => {
+
+  return (
+  <div>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <Link to={`${match.url}/rendering`}>
+          Rendering with React
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/components`}>
+          Components
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>
+          Props v. State
+        </Link>
+      </li>
+    </ul>
+
+    <Route path={`${match.url}/:topicId`} component={Topic}/>
+    <Route exact path={match.url} render={() => (
+      <h3>Please select a topic.</h3>
+    )}/>
+  </div>
+)}
+
+const Topic = ({ match }) => {
+  console.log(match.params.topicId);
+  return (
+  <div>
+    <h3>{match.params.topicId}</h3>
+  </div>
+)}
+
+export default AppRoutes
